@@ -8,6 +8,14 @@ import pandas as pd
 import numpy as np
 import plotly.express as px
 import plotly
+from datetime import date
+#google api: from pytrends.request import TrendReq
+
+
+#=========================================================================================================================================================
+
+#=================== C R Y P T O _ C U S T O M S - PORTFOLIO TRACKER =====================================================================================
+
 #=========================================================================================================================================================
 
 #Call the API, the variable data is "returned"
@@ -95,12 +103,15 @@ df = pd.DataFrame(data_frame)
 print(df)
 
 #step 2: export to excel
-df.to_excel('frame_the_data.xlsx')
+today = date.today()
+print("Today's date:", today)
+filename = 'frame_the_data' + str(today) + '.xlsx'
+df.to_excel(filename)
 
 #step 3: starburst from excel file (very unnecessary)
 #read the data from frame_the_data file 
-df = pd.read_excel('frame_the_data.xlsx', engine='openpyxl',)
-print(df)
+df = pd.read_excel(filename, engine='openpyxl',)
+#print(df)
 Name = df['Name']
 Quantity = df['Quantity']
 USD_Price = df['USD Price']
@@ -112,11 +123,11 @@ fig = px.sunburst(df,
                  path = [Name, Quantity],
                  values = BTC_Value,
                  color = BTC_Value,
-                 color_continuous_scale = ['white', 'green'],
+                 color_continuous_scale = ['gold', 'green'],
                  title = 'Crypto Portfolio'
                  )
 
-#plotly.offline.plot(fig, filename = 'Crypto_Sunburst.html')
+plotly.offline.plot(fig, filename = 'Crypto_Sunburst.html')
 
 #This sunburst isn't organized well!!!!!!!!!!!!!!!!!<------------------------
 #can categorize based on POS,POW,PPOS
@@ -161,7 +172,7 @@ df_from_np.to_excel('new_percents.xlsx', index = ['BTC', 'ETH', 'XLM', 'XMR', 'A
 
 #INDEX NEEDS TO BE AUTOMATIC (for more symbols 10k+)!!!! <----------------------------------------------------------------------
 
-pprint.pprint(new_percents)
+#pprint.pprint(new_percents)
 
 #Step 3: Make another Sunburst with percents
 #read the data from frame_the_data file  and the new_percents file
@@ -200,7 +211,7 @@ day_30 = df_percent_1.iloc[[0,4]]
 day_60 = df_percent_1.iloc[[0,5]]
 day_90 = df_percent_1.iloc[[0,6]]
 #Why Are These Values Not Regular Ints?????? <----------
-print(percent_change_1h.take[[0,0]])
+#print(percent_change_1h.take[[0,0]])
  
 #how to get the number value?????
 #reorganize dataframe with symbol as the index
