@@ -61,17 +61,27 @@ cardano_value = ADA * cardano_price
 algorand_value = ALGO * algorand_price
 portfolio_value = bitcoin_value + ethereum_value + lumen_value + monero_value + cardano_value + algorand_value
 pprint.pprint('=========================================================================================================================================================')
-pprint.pprint('USD Value of Portfolio: ' + str(portfolio_value))
 
-#Print Percentages
-pprint.pprint('     bitcoin: '+ str(100*bitcoin_value/portfolio_value) + '%')
-pprint.pprint('     ethereum: '+ str(100*ethereum_value/portfolio_value) + '%')
-pprint.pprint('     monero: '+ str(100*monero_value/portfolio_value) + '%')
-pprint.pprint('     lumen: '+ str(100*lumen_value/portfolio_value) + '%')
-pprint.pprint('     cardano: '+ str(100*cardano_value/portfolio_value) + '%')
-pprint.pprint('     algorand: '+ str(100*algorand_value/portfolio_value) + '%')
+#Calculate and Print Percentages
+bitcoin_percent = (100*bitcoin_value/portfolio_value)
+ethereum_percent = (100*ethereum_value/portfolio_value) 
+monero_percent = (100*monero_value/portfolio_value) 
+lumen_percent = (100*lumen_value/portfolio_value) 
+cardano_percent = (100*cardano_value/portfolio_value) 
+algorand_percent = (100*algorand_value/portfolio_value)
 
-#Calculations To Find Portfolio BTC Value
+#round these numbers <----------------------------------------------------------------------------------------------
+print(bitcoin_percent) 
+
+pprint.pprint('Percentages')
+pprint.pprint('     bitcoin: '+ str(bitcoin_percent) + '%')
+pprint.pprint('     ethereum: '+ str(ethereum_percent) + '%')
+pprint.pprint('     monero: '+ str(monero_percent) + '%')
+pprint.pprint('     lumen: '+ str(lumen_percent) + '%')
+pprint.pprint('     cardano: '+ str(cardano_percent) + '%')
+pprint.pprint('     algorand: '+ str(algorand_percent) + '%')
+
+#Calculations To Find BTC Value of each coin
 bitcoin_BTC_value = BTC 
 ethereum_BTC_value = ethereum_value / bitcoin_price
 lumen_BTC_value = lumen_value / bitcoin_price
@@ -79,6 +89,7 @@ monero_BTC_value = monero_value / bitcoin_price
 cardano_BTC_value = cardano_value / bitcoin_price
 algorand_BTC_value = algorand_value / bitcoin_price
 portfolio_BTC_value = bitcoin_BTC_value + ethereum_BTC_value + monero_BTC_value + lumen_BTC_value + cardano_BTC_value + algorand_BTC_value
+pprint.pprint('=========================================================================================================================================================')
 
 #print BTC Values
 pprint.pprint('BTC Value of Portfolio: '+ str(portfolio_BTC_value))
@@ -90,6 +101,17 @@ pprint.pprint('     cardano: '+ str(cardano_BTC_value))
 pprint.pprint('     algorand: '+ str(algorand_BTC_value))
 
 pprint.pprint('=========================================================================================================================================================')
+pprint.pprint('USD Value of Portfolio: ' + str(portfolio_value))
+#print USD Values
+pprint.pprint('     bitcoin: '+ str(bitcoin_BTC_value*bitcoin_price))
+pprint.pprint('     ethereum: '+ str(ethereum_BTC_value*bitcoin_price))
+pprint.pprint('     monero: '+ str(monero_BTC_value*bitcoin_price))
+pprint.pprint('     lumen: '+ str(lumen_BTC_value*bitcoin_price))
+pprint.pprint('     cardano: '+ str(cardano_BTC_value*bitcoin_price))
+pprint.pprint('     algorand: '+ str(algorand_BTC_value*bitcoin_price))
+pprint.pprint('=========================================================================================================================================================')
+
+
 #=========================================================================================================================================================
 #Starburst Szn
 #step 1: create dataFrame
@@ -127,7 +149,7 @@ fig = px.sunburst(df,
                  title = 'Crypto Portfolio'
                  )
 
-plotly.offline.plot(fig, filename = 'Crypto_Sunburst.html')
+plotly.offline.plot(fig, filename = 'Crypto_Sunburst' + str(today) + '.html')
 
 #This sunburst isn't organized well!!!!!!!!!!!!!!!!!<------------------------
 #can categorize based on POS,POW,PPOS
