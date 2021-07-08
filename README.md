@@ -1,7 +1,7 @@
 # CoinMarketCap-API-
 Data Visualization using the CoinMarketCap API (yes I like crypto)
 
-Get Coinmarketcap api key from their website
+Get your own Coinmarketcap api key from their website
 
 Create your own cmc_api_key.py file 
   Add api_key = '(your api key goes here)'
