@@ -1,4 +1,4 @@
-#=================================Molnar & Nisbett Consulting=====================================================================================
+#=============================Molnar & Nisbett Consulting=====================================================================================
 
 #=================================PORTFOLIO TRACKER=====================================================================================
 
@@ -27,3 +27,10 @@ plotly.offline.plot(fig, filename = 'Crypto_Sunburst' + str(today) + '.html')
 
 #==More colors!!!!!!!!!!!!!!!!!!!!!!
 
+#==add this to sunburst graph
+#percent_change_1h = df['percent_change_1h']
+#percent_change_24h = df['percent_change_24h']
+#percent_change_7d = df['percent_change_7d']
+#percent_change_30d = df['percent_change_30d']
+#percent_change_60d = df['percent_change_60d']
+#percent_change_90d = df['percent_change_90d']
