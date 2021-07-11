@@ -11,5 +11,5 @@ Go to portfolio.py file
   BTC = 0.1999 # + 0.024 
  If new variables are added then have fun making a million changes to the code
  
-Go to bot.py file
+Go to starburst.py file or calculations if you hate cool graphs
 Run it and enjoy the starburst 
