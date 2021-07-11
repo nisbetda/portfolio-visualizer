@@ -1,5 +1,5 @@
 # CoinMarketCap-API-
-Data Visualization using the CoinMarketCap API (yes I like crypto)
+Data Visualization (Starburst graph and excel file), using the CoinMarketCap API (yes I like crypto)
 
 Steps:
 1. Get your own Coinmarketcap api key from their website
