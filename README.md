@@ -1,5 +1,5 @@
 # CoinMarketCap-API(I like crypto)-and-TD-Ameritrade-API(coming soon)
-Data Visualization (Starburst graph and excel file), using the CoinMarketCap API (yes I like crypto)
+Data Visualization (Interactive Sunburst Graph and excel file)
 
 Steps:
 1. Get your own Coinmarketcap api key from their website
