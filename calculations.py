@@ -1,5 +1,5 @@
 from cmc_api_key import api_key
-from portfolio import symbols, symbol_list, BTC, ETH, XLM, XMR, ADA, ALGO
+from portfolio import symbols, symbol_list, BTC, ETH, XLM, XMR, ADA, ALGO, MGP, BTAH, PHX, AI, CMC_symbols
 from requests import Request, Session
 from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 import json
@@ -15,7 +15,7 @@ from datetime import date
 #Call the API, the variable data is "returned"
 url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest'
 parameters = {
-  'symbol':symbols,
+  'symbol':CMC_symbols,
   'convert':'USD'
 }
 headers = {
@@ -53,8 +53,17 @@ lumen_value = XLM * lumen_price
 monero_value = XMR * monero_price 
 cardano_value = ADA * cardano_price 
 algorand_value = ALGO * algorand_price
-portfolio_value = bitcoin_value + ethereum_value + lumen_value + monero_value + cardano_value + algorand_value
-pprint.pprint('=========================================================================================================================================================')
+#1 add here
+# ,MGP,BTAH,PHX,AI
+#
+# 
+#
+MGP_value = MGP
+BTAH_value = BTAH
+PHX_value = PHX
+AI_value = AI
+portfolio_value = MGP_value + BTAH_value + PHX_value + AI_value + bitcoin_value + ethereum_value + lumen_value + monero_value + cardano_value + algorand_value
+pprint.pprint('======================================================================================')
 
 #Calculate and Print Percentages
 bitcoin_percent = (100*bitcoin_value/portfolio_value)
@@ -63,7 +72,15 @@ monero_percent = (100*monero_value/portfolio_value)
 lumen_percent = (100*lumen_value/portfolio_value) 
 cardano_percent = (100*cardano_value/portfolio_value) 
 algorand_percent = (100*algorand_value/portfolio_value)
-
+#2 add here
+# ,MGP,BTAH,PHX,AI
+#
+# 
+#
+MGP_percent = (100*MGP_value/portfolio_value)
+BTAH_percent = (100*BTAH_value/portfolio_value)
+PHX_percent = (100*PHX_value/portfolio_value)
+AI_percent = (100*AI_value/portfolio_value)
 
 #Calculations To Find BTC Value of each coin
 bitcoin_BTC_value = BTC 
@@ -72,7 +89,17 @@ lumen_BTC_value = lumen_value / bitcoin_price
 monero_BTC_value = monero_value / bitcoin_price
 cardano_BTC_value = cardano_value / bitcoin_price
 algorand_BTC_value = algorand_value / bitcoin_price
-portfolio_BTC_value = bitcoin_BTC_value + ethereum_BTC_value + monero_BTC_value + lumen_BTC_value + cardano_BTC_value + algorand_BTC_value
+#3 add here
+# ,MGP,BTAH,PHX,AI
+#
+# 
+#
+MGP_BTC_value = MGP_value / bitcoin_price
+BTAH_BTC_value = BTAH_value / bitcoin_price
+PHX_BTC_value = PHX_value / bitcoin_price
+AI_BTC_value = AI_value / bitcoin_price
+
+portfolio_BTC_value = MGP_BTC_value + BTAH_BTC_value + PHX_BTC_value + AI_BTC_value + bitcoin_BTC_value + ethereum_BTC_value + monero_BTC_value + lumen_BTC_value + cardano_BTC_value + algorand_BTC_value
 
 #Print Percentages 
 pprint.pprint('Percentages')
@@ -82,7 +109,17 @@ pprint.pprint('     XMR: '+ str(round(monero_percent)) + '%')
 pprint.pprint('     XLM: '+ str(round(lumen_percent)) + '%')
 pprint.pprint('     ADA: '+ str(round(cardano_percent)) + '%')
 pprint.pprint('     ALGO: '+ str(round(algorand_percent)) + '%')
-pprint.pprint('=========================================================================================================================================================')
+#4 add here
+# ,MGP,BTAH,PHX,AI
+#
+# 
+#
+pprint.pprint('     MGP: '+ str(round(MGP_percent)) + '%')
+pprint.pprint('     BTAH: '+ str(round(BTAH_percent)) + '%')
+pprint.pprint('     PHX: '+ str(round(PHX_percent)) + '%')
+pprint.pprint('     AI: '+ str(round(AI_percent)) + '%')
+
+pprint.pprint('======================================================================================')
 
 #print Value in BTC
 pprint.pprint('Value of Portfolio (BTC): '+ str(round(portfolio_BTC_value, 8)))
@@ -92,8 +129,17 @@ pprint.pprint('     XMR: '+ str(round(monero_BTC_value, 3)))
 pprint.pprint('     XLM: '+ str(round(lumen_BTC_value, 3)))
 pprint.pprint('     ADA: '+ str(round(cardano_BTC_value, 3)))
 pprint.pprint('     ALGO: '+ str(round(algorand_BTC_value, 3)))
+#5 add here
+# ,MGP,BTAH,PHX,AI
+#
+# 
+#
+pprint.pprint('     MGP: '+ str(round(MGP_BTC_value, 3)))
+pprint.pprint('     BTAH: '+ str(round(BTAH_BTC_value, 3)))
+pprint.pprint('     PHX: '+ str(round(PHX_BTC_value, 3)))
+pprint.pprint('     AI: '+ str(round(AI_BTC_value, 3)))
 
-pprint.pprint('=========================================================================================================================================================')
+pprint.pprint('======================================================================================')
 #print Values in USD
 
 pprint.pprint('Value of Portfolio (USD): ' + str(round(portfolio_value)))
@@ -103,22 +149,36 @@ pprint.pprint('     XMR: '+ str(round(monero_BTC_value*bitcoin_price)))
 pprint.pprint('     XLM: '+ str(round(lumen_BTC_value*bitcoin_price)))
 pprint.pprint('     ADA: '+ str(round(cardano_BTC_value*bitcoin_price)))
 pprint.pprint('     ALGO: '+ str(round(algorand_BTC_value*bitcoin_price)))
-pprint.pprint('=========================================================================================================================================================')
+#6 add here
+# ,MGP,BTAH,PHX,AI
+#
+# 
+#
+pprint.pprint('     MGP: '+ str(round(MGP_BTC_value*bitcoin_price)))
+pprint.pprint('     BTAH: '+ str(round(BTAH_BTC_value*bitcoin_price)))
+pprint.pprint('     PHX: '+ str(round(PHX_BTC_value*bitcoin_price)))
+pprint.pprint('     AI: '+ str(round(AI_BTC_value*bitcoin_price)))
+
+pprint.pprint('======================================================================================')
 
 
 #=========================================================================================================================================================
 #Starburst Szn
 #step 1: create dataFrame
 data_frame = {
-        'Crypto':[portfolio_BTC_value,portfolio_BTC_value,portfolio_BTC_value,portfolio_BTC_value,portfolio_BTC_value,portfolio_BTC_value],
-        'Name':['BTC', 'ETH', 'XLM', 'XMR', 'ADA', 'ALGO'],
-        'Algorithm':['POW', 'POS', 'SCP', 'POW', 'POS', 'PPOS'],
-        'Quantity':[BTC, ETH, XLM, XMR, ADA, ALGO],
-        'USD Price':[bitcoin_price, ethereum_price, lumen_price, monero_price, cardano_price, algorand_price],
-        'BTC Value':[bitcoin_BTC_value, ethereum_BTC_value, lumen_BTC_value, monero_BTC_value, cardano_BTC_value, algorand_BTC_value],
-        'USD Value':[bitcoin_value, ethereum_value, lumen_value, monero_value, cardano_value, algorand_value],
-        'Percent':[round(bitcoin_percent), round(ethereum_percent), round(lumen_percent), round(monero_percent), round(cardano_percent,2), round(algorand_percent,2)]}
-
+        'Crypto':[portfolio_BTC_value,portfolio_BTC_value,portfolio_BTC_value,portfolio_BTC_value,portfolio_BTC_value,portfolio_BTC_value,portfolio_BTC_value,portfolio_BTC_value,portfolio_BTC_value,portfolio_BTC_value],
+        'Name':['BTC', 'ETH', 'XLM', 'XMR', 'ADA', 'ALGO', 'MGP', 'BTAH', 'PHX', 'AI'],
+        'Algorithm':['POW', 'POS', 'SCP', 'POW', 'POS', 'PPOS', 'VICs Masterpiece', 'VICs Masterpiece', 'Art', 'Art'],
+        'Quantity':[BTC, ETH, XLM, XMR, ADA, ALGO, MGP, BTAH, PHX,AI],
+        'USD Price':[bitcoin_price, ethereum_price, lumen_price, monero_price, cardano_price, algorand_price, MGP,BTAH,PHX,AI],
+        'BTC Value':[bitcoin_BTC_value, ethereum_BTC_value, lumen_BTC_value, monero_BTC_value, cardano_BTC_value, algorand_BTC_value, MGP_BTC_value, BTAH_BTC_value, PHX_BTC_value, AI_BTC_value],
+        'USD Value':[bitcoin_value, ethereum_value, lumen_value, monero_value, cardano_value, algorand_value, MGP_value,BTAH_value,PHX_value,AI_value],
+        'Percent':[round(bitcoin_percent), round(ethereum_percent), round(lumen_percent), round(monero_percent), round(cardano_percent,2), round(algorand_percent,2), round(MGP_percent), round(BTAH_percent), round(PHX_percent), round(AI_percent)]}
+#7 add here
+# ,MGP,BTAH,PHX,AI
+# USE TD Ameritrade API
+# 
+#
 df = pd.DataFrame(data_frame)
 print(df)
 
@@ -144,41 +204,9 @@ df = pd.read_excel(filename, engine='openpyxl',)
 #or maybe percent_change_90d, cmc_rank, volume_24h, max_supply
 
 #Percent Change Analysis w/ Sunburst
-#Step 1: Declare And Assign 6 Percent Change Variables for each Asset
-def get_percent_change(quote_symbol):
-  percent_change_list = []
-  num_of_symbols = 0
-  for s in symbol_list:
-      num_of_symbols += 1
-      percent_change_1h = data['data'][s]['quote']['USD']['percent_change_1h']
-      percent_change_24h = data['data'][s]['quote']['USD']['percent_change_24h']
-      percent_change_7d = data['data'][s]['quote']['USD']['percent_change_7d']
-      percent_change_30d = data['data'][s]['quote']['USD']['percent_change_30d']
-      percent_change_60d = data['data'][s]['quote']['USD']['percent_change_60d']
-      percent_change_90d = data['data'][s]['quote']['USD']['percent_change_90d']
-
-      percent_change_list.append(percent_change_1h)
-      percent_change_list.append(percent_change_24h)
-      percent_change_list.append(percent_change_7d)
-      percent_change_list.append(percent_change_30d)
-      percent_change_list.append(percent_change_60d)
-      percent_change_list.append(percent_change_90d)
-
-  df_percent = pd.DataFrame(percent_change_list)
-
-  return df_percent, num_of_symbols
-
-#Step 2: Create Data Frame for variables
-percents, num_of_symbols =  get_percent_change(symbol_list)
-#change dimensions
-new_percents = percents.values.copy()
-#converted to a numpy array, why? idk.
-new_percents.resize((len(symbol_list)), 6) #find a way to find length of list of symbols
-pd.DataFrame(new_percents.T)
-# convert array into a dataframe
-df_from_np = pd.DataFrame(new_percents.T)
-# save to xlsx file
-df_from_np.to_excel('new_percents.xlsx', index = ['BTC', 'ETH', 'XLM', 'XMR', 'ALGO', 'ADA'], header = ['percent_change_1h', 'percent_change_24h', 'percent_change_7d', 'percent_change_30d', 'percent_change_60d', 'percent_change_90d'])
+#Step 1: Declare And Assign 6 Percent Change Variables for each Asset 
+# 
+# <UNUSED>!!!!!!!!
 
 #INDEX NEEDS TO BE AUTOMATIC (for more symbols 10k+)!!!! <----------------------------------------------------------------------
 
@@ -187,59 +215,19 @@ df_from_np.to_excel('new_percents.xlsx', index = ['BTC', 'ETH', 'XLM', 'XMR', 'A
 #Step 3: Make another Sunburst with percents
 #read the data from frame_the_data file  and the new_percents file
 df_portfolio = pd.read_excel('frame_the_data.xlsx', engine='openpyxl',)
-df_percent = pd.read_excel('new_percents.xlsx', engine='openpyxl',)
 
-Name = df_portfolio['Name']
-Quantity = df_portfolio['Quantity']
-USD_Price = df_portfolio['USD Price']
-USD_Value = df_portfolio['USD Value']
-BTC_Value = df_portfolio['BTC Value']
 
-percent_change_1h = df_percent['percent_change_1h']
-percent_change_24h = df_percent['percent_change_24h']
-percent_change_7d = df_percent['percent_change_7d']
-percent_change_30d = df_percent['percent_change_30d']
-percent_change_60d = df_percent['percent_change_60d']
-percent_change_90d = df_percent['percent_change_90d']
 
-percent_name_list = ['percent_change_1h', 'percent_change_24h', 'percent_change_7d', 'percent_change_30d', 'percent_change_60d', 'percent_change_90d']
-percent_value_list = [percent_change_1h, percent_change_24h, percent_change_7d, percent_change_30d, percent_change_60d, percent_change_90d]
+# </UNUSED!!!>
 
-#find the number of positive percentage changes for each symbol
-#split dataframe by row
-df_percent_1 = df_percent.iloc[0,:]
-df_percent_2 = df_percent.iloc[1,:]
-df_percent_3 = df_percent.iloc[2,:]
-df_percent_4 = df_percent.iloc[3,:]
-df_percent_5 = df_percent.iloc[4,:]
-df_percent_6 = df_percent.iloc[5,:]
-
-hour_1 = df_percent_1.iloc[[0,1]]
-hour_24 = df_percent_1.iloc[[0,2]]
-day_7 = df_percent_1.iloc[[0,3]]
-day_30 = df_percent_1.iloc[[0,4]]
-day_60 = df_percent_1.iloc[[0,5]]
-day_90 = df_percent_1.iloc[[0,6]]
-#Why Are These Values Not Regular Ints?????? <----------
-#print(percent_change_1h.take[[0,0]])
- 
 #how to get the number value?????
 #reorganize dataframe with symbol as the index
 #get rid of index value
 #finish sunburst
-#def get_percent_change(quote_symbol):
-  #for s in symbol_list:
-#the visualization party pt. 2
-fig = px.sunburst(
-                 path = [Name],
-                 #color = percent_value_list,
-                 color_continuous_scale = ['red', 'green'],
-                 title = 'Crypto Percents'
-                 )
-#plotly.offline.plot(fig, filename = 'Crypto_Percent_Sunburst.html')
-#Step 4: Profit??????
+
 #=========================================================================================================================================================
 
+#TD Ameritrade API part
 
 #more colors
 
