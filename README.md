@@ -1,4 +1,4 @@
-# CoinMarketCap-API-
+# CoinMarketCap-API(I like crypto)-and-TD-Ameritrade-API(coming soon)
 Data Visualization (Starburst graph and excel file), using the CoinMarketCap API (yes I like crypto)
 
 Steps:
