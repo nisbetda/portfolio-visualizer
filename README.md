@@ -1,4 +1,4 @@
-# CoinMarketCap-API(I like crypto)-and-TD-Ameritrade-API(coming soon)
+# CoinMarketCap-API(I like crypto)-and-TD-Ameritrade-API
 Data Visualization (Interactive Sunburst Graph and excel file)
 
 Steps:
